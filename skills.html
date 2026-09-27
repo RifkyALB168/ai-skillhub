@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Skill - AI SkillHub</title>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header>
+        <h1>AI SkillHub</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="skills.html">Jelajah Skill</a></li>
+                <li><a href="skill-form.html">Tambah Skill</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Section Pencarian dan Filter -->
+        <section id="search-filter">
+            <h2>Pencarian AI Skills</h2>
+            <form action="skills.html" method="GET">
+                <p>
+                    <label for="search-keyword">Kata Kunci:</label><br>
+                    <input type="text" id="search-keyword" name="q" placeholder="Cari skill (misal: React, Security, Copywriting)...">
+                </p>
+
+                <p>
+                    <label for="filter-category">Filter Kategori:</label><br>
+                    <select id="filter-category" name="category">
+                        <option value="">-- Semua Kategori --</option>
+                        <option value="design">Design</option>
+                        <option value="development">Development</option>
+                        <option value="security">Security</option>
+                        <option value="data">Data</option>
+                        <option value="writing">Writing</option>
+                        <option value="automation">Automation</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="filter-platform">Filter Platform AI:</label><br>
+                    <select id="filter-platform" name="platform">
+                        <option value="">-- Semua Platform --</option>
+                        <option value="claude">Claude</option>
+                        <option value="openai">OpenAI</option>
+                        <option value="gemini">Gemini</option>
+                        <option value="agent">Coding Agent / Cursor</option>
+                    </select>
+                </p>
+
+                <button type="submit">Terapkan Filter</button>
+            </form>
+        </section>
+
+        <!-- Section Daftar Hasil Pencarian -->
+        <section id="skill-list">
+            <h2>Daftar AI Skills</h2>
+
+            <!-- Article Item 1 -->
+            <article>
+                <h3><a href="skill-detail.html">UI/UX Designer Assistant</a></h3>
+                <p>Membuat struktur UI/UX, color palette, dan hirarki tipografi berdasarkan prinsip desain modern.</p>
+                <p>
+                    <strong>Kategori:</strong> Design | 
+                    <strong>Author:</strong> @design_guru | 
+                    <strong>Platform:</strong> Claude
+                </p>
+                <a href="skill-detail.html">Buka Skill →</a>
+            </article>
+
+            <hr>
+
+            <!-- Article Item 2 -->
+            <article>
+                <h3><a href="skill-detail.html">Python Security Auditor</a></h3>
+                <p>Pemeriksaan keamanan otomatis pada kode Python sebelum dipublikasikan ke server produksi.</p>
+                <p>
+                    <strong>Kategori:</strong> Security | 
+                    <strong>Author:</strong> @sec_expert | 
+                    <strong>Platform:</strong> General AI
+                </p>
+                <a href="skill-detail.html">Buka Skill →</a>
+            </article>
+
+            <hr>
+
+            <!-- Article Item 3 -->
+            <article>
+                <h3><a href="skill-detail.html">SQL Query Optimizer</a></h3>
+                <p>Membantu optimasi query SQL yang lambat, menambahkan indeks, dan analisis execution plan.</p>
+                <p>
+                    <strong>Kategori:</strong> Data | 
+                    <strong>Author:</strong> @db_admin | 
+                    <strong>Platform:</strong> OpenAI
+                </p>
+                <a href="skill-detail.html">Buka Skill →</a>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AI SkillHub Project</p>
+    </footer>
+
+</body>
+</html>

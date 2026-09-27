@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Skill - AI SkillHub</title>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header>
+        <h1>AI SkillHub</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="skills.html">Jelajah Skill</a></li>
+                <li><a href="skill-form.html">Tambah Skill</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="submit-form-section">
+            <h2>Submit AI Skill Baru</h2>
+            <p>Kontribusikan AI Skill Anda atau dari repositori GitHub publik ke komunitas AI SkillHub.</p>
+
+            <form action="skills.html" method="POST">
+
+                <!-- Nama Skill -->
+                <p>
+                    <label for="form-skill-name">Nama Skill:</label><br>
+                    <input type="text" id="form-skill-name" name="skill_name" required placeholder="Contoh: Python Code Reviewer">
+                </p>
+
+                <!-- Deskripsi -->
+                <p>
+                    <label for="form-skill-desc">Deskripsi Singkat:</label><br>
+                    <textarea id="form-skill-desc" name="skill_description" rows="3" cols="50" required placeholder="Jelaskan secara singkat kegunaan skill ini..."></textarea>
+                </p>
+
+                <!-- Kategori -->
+                <p>
+                    <label for="form-skill-category">Kategori Utama:</label><br>
+                    <select id="form-skill-category" name="skill_category" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="design">Design</option>
+                        <option value="development">Development</option>
+                        <option value="security">Security</option>
+                        <option value="data">Data</option>
+                        <option value="writing">Writing</option>
+                        <option value="automation">Automation</option>
+                    </select>
+                </p>
+
+                <!-- AI Platform -->
+                <p>
+                    <label for="form-ai-platform">Platform / Ekosistem AI:</label><br>
+                    <select id="form-ai-platform" name="ai_platform" required>
+                        <option value="general">General AI (Bisa Semua)</option>
+                        <option value="claude">Claude</option>
+                        <option value="openai">OpenAI (ChatGPT)</option>
+                        <option value="gemini">Gemini</option>
+                        <option value="agent">AI Agent / Cursor / Windsurf</option>
+                    </select>
+                </p>
+
+                <!-- Tag -->
+                <p>
+                    <label for="form-skill-tags">Tag (Pisahkan dengan koma):</label><br>
+                    <input type="text" id="form-skill-tags" name="skill_tags" placeholder="Contoh: UI, Figma, Accessibility">
+                </p>
+
+                <!-- GitHub URL -->
+                <p>
+                    <label for="form-github-url">URL GitHub Repositori (Opsional):</label><br>
+                    <input type="url" id="form-github-url" name="github_url" placeholder="https://github.com/username/repository">
+                </p>
+
+                <!-- Skill Content -->
+                <p>
+                    <label for="form-skill-content">Isi Prompt / Skill Content:</label><br>
+                    <textarea id="form-skill-content" name="skill_content" rows="10" cols="50" required placeholder="Tuliskan instruksi AI atau system prompt di sini..."></textarea>
+                </p>
+
+                <!-- Persetujuan -->
+                <p>
+                    <input type="checkbox" id="form-terms" name="terms_agree" required>
+                    <label for="form-terms">Saya menjamin konten ini aman dari perintah berbahaya dan tidak melanggar hak cipta.</label>
+                </p>
+
+                <!-- Tombol Submit -->
+                <p>
+                    <button type="submit">Kirim Skill untuk Ditinjau</button>
+                    <button type="reset">Reset Form</button>
+                </p>
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><a href="index.html">← Batal dan Kembali ke Beranda</a></p>
+        <p>&copy; 2026 AI SkillHub Project</p>
+    </footer>
+
+</body>
+</html>
