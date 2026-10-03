@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI SkillHub - Repository Terpusat AI Skills</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Header & Navigasi -->
     <header>
-        <img src="assets/images/logo.png" alt="Logo AI SkillHub" width="50" height="50">
-        <h1>AI SkillHub</h1>
-        <p>Platform Komunitas Terpusat untuk Menemukan dan Membagikan AI Skills</p>
+        <div class="brand">
+            <img src="assets/images/logo.png" alt="Logo AI SkillHub" width="50" height="50">
+            <div>
+                <h1>AI SkillHub</h1>
+                <p class="tagline">Platform Komunitas Terpusat untuk Menemukan dan Membagikan AI Skills</p>
+            </div>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
@@ -28,8 +33,10 @@
         <section id="hero">
             <h2>Temukan AI Skill yang Tepat untuk Workflow Anda</h2>
             <p>Dapatkan instruksi, system prompt, dan otomatisasi dari Claude, OpenAI, Gemini, hingga AI Agents dalam satu tempat.</p>
-            <a href="skills.html">Cari Skill Sekarang</a> | 
-            <a href="skill-form.html">Bagikan Skill Anda</a>
+            <div class="hero-actions">
+                <a href="skills.html" class="btn">Cari Skill Sekarang</a>
+                <a href="skill-form.html" class="btn btn-light">Bagikan Skill Anda</a>
+            </div>
         </section>
 
         <!-- Section Kategori Populer -->
@@ -51,8 +58,8 @@
             <article>
                 <h3><a href="skill-detail.html">UI/UX Designer Assistant</a></h3>
                 <p>Membantu mendesain antarmuka modern berdasarkan prinsip hirarki visual dan WCAG.</p>
-                <p><strong>Kategori:</strong> Design | <strong>Platform:</strong> Claude / OpenAI</p>
-                <p>❤️ 124 Favorites | 👁️ 2.4K Views</p>
+                <p><strong>Kategori:</strong> <span class="badge">Design</span> | <strong>Platform:</strong> Claude / OpenAI</p>
+                <p class="stats"><span>❤️ 124 Favorites</span> | <span>👁️ 2.4K Views</span></p>
                 <a href="skill-detail.html">Lihat Detail Skill</a>
             </article>
 
@@ -61,8 +68,8 @@
             <article>
                 <h3><a href="skill-detail.html">Python Security Auditor</a></h3>
                 <p>Menganalisis potensi celah keamanan pada repositori Python menggunakan standar OWASP.</p>
-                <p><strong>Kategori:</strong> Security | <strong>Platform:</strong> General AI</p>
-                <p>❤️ 98 Favorites | 👁️ 1.8K Views</p>
+                <p><strong>Kategori:</strong> <span class="badge">Security</span> | <strong>Platform:</strong> General AI</p>
+                <p class="stats"><span>❤️ 98 Favorites</span> | <span>👁️ 1.8K Views</span></p>
                 <a href="skill-detail.html">Lihat Detail Skill</a>
             </article>
         </section>
@@ -70,7 +77,7 @@
         <!-- Section Ringkasan Platform (Tabel) -->
         <section id="platform-stats">
             <h2>Statistik Repositori</h2>
-            <table border="1">
+            <table>
                 <caption>Ringkasan Kontribusi Komunitas</caption>
                 <thead>
                     <tr>

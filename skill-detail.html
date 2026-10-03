@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Skill - UI/UX Designer Assistant | AI SkillHub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Header & Navigasi -->
     <header>
-        <h1>AI SkillHub</h1>
+        <div class="brand">
+            <h1>AI SkillHub</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
@@ -20,20 +23,20 @@
     </header>
 
     <!-- Konten Utama Detail -->
-    <main>
+    <main class="detail-layout">
 
         <article>
             <header>
                 <h2>🎨 UI/UX Designer Assistant</h2>
                 <p>Dipublikasikan oleh: <strong>@design_guru</strong></p>
-                <img src="assets/images/author-avatar.png" alt="Foto profil pembuat skill @design_guru" width="80" height="80">
+                <img src="assets/images/author-avatar.png" alt="Foto profil pembuat skill @design_guru" width="80" height="80" class="author-avatar">
             </header>
 
             <!-- Metadata Skill -->
             <section id="skill-metadata">
                 <h3>Informasi Skill</h3>
                 <ul>
-                    <li><strong>Kategori:</strong> Design</li>
+                    <li><strong>Kategori:</strong> <span class="badge">Design</span></li>
                     <li><strong>Platform AI:</strong> Claude / OpenAI / Gemini</li>
                     <li><strong>Tag:</strong> UI, UX, Figma, Web Design, Accessibility</li>
                     <li><strong>Sumber Repositori:</strong> <a href="https://github.com" target="_blank" rel="noopener">github.com/design_guru/ui-skills</a></li>
@@ -62,14 +65,14 @@ Your task is to review user specifications and construct a comprehensive design 
                 <h3>Aksi</h3>
                 <button type="button">❤️ Tambah ke Favorit</button>
                 <button type="button">⬇️ Download File (.txt)</button>
-                <a href="https://github.com" target="_blank" rel="noopener">Buka Sumber GitHub Original</a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-light">Buka Sumber GitHub Original</a>
             </section>
         </article>
 
         <!-- Aside / Informasi Tambahan -->
         <aside>
             <h3>Statistik Skill</h3>
-            <table border="1">
+            <table>
                 <caption>Metrik Interaksi Pengguna</caption>
                 <tr>
                     <th>Views</th>
