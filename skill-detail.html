@@ -5,80 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI/UX Designer Assistant - AI SkillHub</title>
     <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Geist -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&display=swap">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-black font-[Geist] text-sm text-neutral-200">
 
-    <header>
-        <div class="brand">
-            <img src="assets/images/logo.svg" alt="Logo AI SkillHub" width="32" height="32">
-            <h1>AI SkillHub</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="skills.html">Jelajah</a></li>
-                <li><a href="skill-form.html">Submit</a></li>
+    <!-- Navbar -->
+    <header class="border-b border-neutral-800">
+        <nav class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <a href="index.html" class="flex items-center gap-2 text-base font-semibold text-neutral-100">
+                <img src="assets/images/logo.svg" alt="" width="28" height="28">
+                AI SkillHub
+            </a>
+            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
+            <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
+                <li><a href="index.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Dashboard</a></li>
+                <li><a href="skills.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Jelajah</a></li>
+                <li><a href="skill-form.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Submit</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="detail-layout">
-        <article>
-            <h2>UI/UX Designer Assistant</h2>
-            <p>
-                <span class="badge">Design</span>
-                <span class="author">oleh @design_guru</span>
-            </p>
-            <p>Memandu AI membuat design system: warna, tipografi, dan aksesibilitas.</p>
+    <!-- 1 kolom di mobile, 3 kolom (2 + 1) di desktop -->
+    <main class="mx-auto grid max-w-5xl gap-8 px-4 py-8 md:grid-cols-3">
 
-            <h3>Isi Skill</h3>
-            <pre><code>You are an experienced UI/UX Designer.
+        <article class="md:col-span-2">
+            <h1 class="text-2xl font-semibold text-neutral-100">UI/UX Designer Assistant</h1>
+            <div class="mt-2 flex items-center gap-3">
+                <span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Design</span>
+                <span class="text-xs text-neutral-400">oleh @design_guru</span>
+            </div>
+            <p class="mt-4">Memandu AI membuat design system: warna, tipografi, dan aksesibilitas.</p>
+
+            <h2 class="mt-6 mb-2 font-semibold text-neutral-100">Isi Skill</h2>
+            <pre class="whitespace-pre-wrap rounded border border-neutral-800 bg-neutral-950 p-4 font-[Geist_Mono] text-xs leading-5">You are an experienced UI/UX Designer.
 1. Define a color palette.
 2. Define a typography scale using REM units.
-3. Check contrast ratios (WCAG AAA).</code></pre>
+3. Check contrast ratios (WCAG AAA).</pre>
 
-            <div class="actions">
-                <button type="button">Salin Skill</button>
-                <button type="button">Download .txt</button>
-                <button type="button" class="btn-secondary">Tambah ke Favorit</button>
-                <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary">Buka di GitHub</a>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <button type="button" class="rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300">Salin Skill</button>
+                <button type="button" class="rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300">Download .txt</button>
+                <button type="button" class="rounded border border-neutral-700 px-4 py-2 font-medium hover:bg-neutral-900">Tambah ke Favorit</button>
+                <a href="https://github.com" target="_blank" rel="noopener" class="rounded border border-neutral-700 px-4 py-2 font-medium hover:bg-neutral-900">Buka di GitHub</a>
             </div>
         </article>
 
-        <aside>
-            <h3>Info</h3>
-            <ul class="info-list">
+        <aside class="h-fit rounded border border-neutral-800 p-5">
+            <h2 class="mb-3 font-semibold text-neutral-100">Info</h2>
+            <ul class="list-disc space-y-1 pl-4 text-neutral-400">
                 <li>Platform: Claude, OpenAI</li>
                 <li>Tag: UI, UX, Figma</li>
-                <li>Sumber: <a href="https://github.com" target="_blank" rel="noopener">design_guru/ui-skills</a></li>
+                <li>Sumber: <a href="https://github.com" target="_blank" rel="noopener" class="text-neutral-100 underline">design_guru/ui-skills</a></li>
             </ul>
 
-            <table>
-                <caption>Statistik</caption>
-                <thead>
+            <table class="mt-5 w-full text-center">
+                <caption class="mb-2 text-left font-medium">Statistik</caption>
+                <thead class="text-xs text-neutral-400">
                     <tr>
-                        <th>Views</th>
-                        <th>Favorit</th>
-                        <th>Download</th>
+                        <th class="border border-neutral-800 p-2 font-medium">Views</th>
+                        <th class="border border-neutral-800 p-2 font-medium">Favorit</th>
+                        <th class="border border-neutral-800 p-2 font-medium">Download</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>2.450</td>
-                        <td>124</td>
-                        <td>532</td>
+                        <td class="border border-neutral-800 p-2">2.450</td>
+                        <td class="border border-neutral-800 p-2">124</td>
+                        <td class="border border-neutral-800 p-2">532</td>
                     </tr>
                 </tbody>
             </table>
 
-            <a href="#">Laporkan skill</a>
+            <a href="#" class="mt-5 inline-block text-neutral-400 underline hover:text-neutral-100">Laporkan skill</a>
         </aside>
+
     </main>
 
-    <footer>
+    <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
-
 </body>
 </html>

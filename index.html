@@ -3,70 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI SkillHub</title>
+    <title>Dashboard - AI SkillHub</title>
     <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Geist -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-black font-[Geist] text-sm text-neutral-200">
 
-    <header>
-        <div class="brand">
-            <img src="assets/images/logo.svg" alt="Logo AI SkillHub" width="32" height="32">
-            <h1>AI SkillHub</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" aria-current="page">Beranda</a></li>
-                <li><a href="skills.html">Jelajah</a></li>
-                <li><a href="skill-form.html">Submit</a></li>
+    <!-- Navbar -->
+    <header class="border-b border-neutral-800">
+        <nav class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <a href="index.html" class="flex items-center gap-2 text-base font-semibold text-neutral-100">
+                <img src="assets/images/logo.svg" alt="" width="28" height="28">
+                AI SkillHub
+            </a>
+            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
+            <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
+                <li><a href="index.html" aria-current="page" class="block rounded px-3 py-2 text-neutral-100 hover:bg-neutral-900">Dashboard</a></li>
+                <li><a href="skills.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Jelajah</a></li>
+                <li><a href="skill-form.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Submit</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <h2>Temukan AI Skill yang Tepat</h2>
-            <p>Kumpulan AI Skills dari Claude, OpenAI, Gemini, dan lainnya.</p>
-            <div class="hero-actions">
-                <a href="skills.html" class="btn">Cari Skill</a>
-                <a href="skill-form.html" class="btn btn-secondary">Submit Skill</a>
+    <main class="mx-auto max-w-5xl px-4 py-8">
+
+        <!-- Hero -->
+        <section class="py-10 text-center md:py-16">
+            <h1 class="text-3xl font-semibold text-neutral-100 md:text-4xl">Temukan AI Skill yang Tepat</h1>
+            <p class="mt-3 text-base text-neutral-400">Kumpulan AI Skills dari Claude, OpenAI, Gemini, dan lainnya.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+                <a href="skills.html" class="rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300">Cari Skill</a>
+                <a href="skill-form.html" class="rounded border border-neutral-700 px-4 py-2 font-medium hover:bg-neutral-900">Submit Skill</a>
             </div>
         </section>
 
-        <section>
-            <h2>Kategori</h2>
-            <ul class="category-list">
-                <li>Design</li>
-                <li>Development</li>
-                <li>Security</li>
-                <li>Data</li>
-                <li>Writing</li>
-                <li>Research</li>
-                <li>Automation</li>
-                <li>Productivity</li>
+        <!-- Statistik: 2 kolom di mobile, 4 kolom di desktop -->
+        <section class="grid grid-cols-2 gap-3 md:grid-cols-4">
+            <div class="rounded border border-neutral-800 p-4">
+                <p class="text-xs text-neutral-400">Total Skill</p>
+                <p class="mt-1 text-2xl font-semibold text-neutral-100">1.284</p>
+            </div>
+            <div class="rounded border border-neutral-800 p-4">
+                <p class="text-xs text-neutral-400">Kategori</p>
+                <p class="mt-1 text-2xl font-semibold text-neutral-100">8</p>
+            </div>
+            <div class="rounded border border-neutral-800 p-4">
+                <p class="text-xs text-neutral-400">Kontributor</p>
+                <p class="mt-1 text-2xl font-semibold text-neutral-100">245</p>
+            </div>
+            <div class="rounded border border-neutral-800 p-4">
+                <p class="text-xs text-neutral-400">Menunggu Review</p>
+                <p class="mt-1 text-2xl font-semibold text-neutral-100">17</p>
+            </div>
+        </section>
+
+        <!-- Kategori: 2 kolom di mobile, 4 kolom di desktop -->
+        <section class="mt-12">
+            <h2 class="mb-4 text-lg font-semibold text-neutral-100">Kategori</h2>
+            <ul class="grid grid-cols-2 gap-2 md:grid-cols-4">
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Design</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Development</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Security</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Data</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Writing</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Research</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Automation</a></li>
+                <li><a href="skills.html" class="block rounded border border-neutral-800 p-3 text-center text-neutral-400 hover:border-neutral-600 hover:text-neutral-100">Productivity</a></li>
             </ul>
         </section>
 
-        <section>
-            <h2>Trending</h2>
-
-            <article class="skill-item">
-                <h3><a href="skill-detail.html">UI/UX Designer Assistant</a></h3>
-                <p>Membantu mendesain antarmuka yang modern dan aksesibel.</p>
-                <span class="badge">Design</span>
-            </article>
-
-            <article class="skill-item">
-                <h3><a href="skill-detail.html">Python Security Auditor</a></h3>
-                <p>Memeriksa celah keamanan pada kode Python.</p>
-                <span class="badge">Security</span>
-            </article>
+        <!-- Trending: 1 kolom di mobile, 3 kolom di desktop -->
+        <section class="mt-12">
+            <h2 class="mb-4 text-lg font-semibold text-neutral-100">Trending</h2>
+            <div class="grid gap-3 md:grid-cols-3">
+                <article class="rounded border border-neutral-800 p-4">
+                    <h3 class="font-semibold text-neutral-100"><a href="skill-detail.html" class="hover:underline">UI/UX Designer Assistant</a></h3>
+                    <p class="mt-1 text-neutral-400">Membantu mendesain antarmuka yang modern dan aksesibel.</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Design</span>
+                        <span class="text-xs text-neutral-500">124 favorit</span>
+                    </div>
+                </article>
+                <article class="rounded border border-neutral-800 p-4">
+                    <h3 class="font-semibold text-neutral-100"><a href="skill-detail.html" class="hover:underline">Python Security Auditor</a></h3>
+                    <p class="mt-1 text-neutral-400">Memeriksa celah keamanan pada kode Python.</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Security</span>
+                        <span class="text-xs text-neutral-500">98 favorit</span>
+                    </div>
+                </article>
+                <article class="rounded border border-neutral-800 p-4">
+                    <h3 class="font-semibold text-neutral-100"><a href="skill-detail.html" class="hover:underline">SQL Query Optimizer</a></h3>
+                    <p class="mt-1 text-neutral-400">Mempercepat query SQL yang lambat.</p>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Data</span>
+                        <span class="text-xs text-neutral-500">76 favorit</span>
+                    </div>
+                </article>
+            </div>
         </section>
+
     </main>
 
-    <footer>
+    <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
-
 </body>
 </html>

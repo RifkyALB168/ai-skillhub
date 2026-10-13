@@ -5,77 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jelajah Skill - AI SkillHub</title>
     <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Geist -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-black font-[Geist] text-sm text-neutral-200">
 
-    <header>
-        <div class="brand">
-            <img src="assets/images/logo.svg" alt="Logo AI SkillHub" width="32" height="32">
-            <h1>AI SkillHub</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="skills.html" aria-current="page">Jelajah</a></li>
-                <li><a href="skill-form.html">Submit</a></li>
+    <!-- Navbar -->
+    <header class="border-b border-neutral-800">
+        <nav class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <a href="index.html" class="flex items-center gap-2 text-base font-semibold text-neutral-100">
+                <img src="assets/images/logo.svg" alt="" width="28" height="28">
+                AI SkillHub
+            </a>
+            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
+            <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
+                <li><a href="index.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Dashboard</a></li>
+                <li><a href="skills.html" aria-current="page" class="block rounded px-3 py-2 text-neutral-100 hover:bg-neutral-900">Jelajah</a></li>
+                <li><a href="skill-form.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Submit</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Jelajah Skill</h2>
-            <form action="skills.html" method="GET" class="search-bar">
-                <div class="form-group">
-                    <label for="search-keyword">Kata kunci</label>
-                    <input type="text" id="search-keyword" name="q" placeholder="React, SEO, security...">
-                </div>
-                <div class="form-group">
-                    <label for="filter-category">Kategori</label>
-                    <select id="filter-category" name="category">
-                        <option value="">Semua</option>
-                        <option value="design">Design</option>
-                        <option value="development">Development</option>
-                        <option value="security">Security</option>
-                        <option value="data">Data</option>
-                        <option value="writing">Writing</option>
-                        <option value="research">Research</option>
-                        <option value="automation">Automation</option>
-                        <option value="productivity">Productivity</option>
-                    </select>
-                </div>
-                <button type="submit">Cari Skill</button>
-            </form>
-        </section>
+    <main class="mx-auto max-w-5xl px-4 py-8">
 
-        <section>
-            <article class="skill-item">
-                <h3><a href="skill-detail.html">UI/UX Designer Assistant</a></h3>
-                <p>Membantu mendesain antarmuka yang modern dan aksesibel.</p>
-                <span class="badge">Design</span>
-                <span class="author">oleh @design_guru</span>
-            </article>
+        <h1 class="text-2xl font-semibold text-neutral-100">Jelajah Skill</h1>
+        <p class="mt-1 text-neutral-400">Cari skill berdasarkan nama atau kategori.</p>
 
-            <article class="skill-item">
-                <h3><a href="skill-detail.html">Python Security Auditor</a></h3>
-                <p>Memeriksa celah keamanan pada kode Python.</p>
-                <span class="badge">Security</span>
-                <span class="author">oleh @sec_expert</span>
-            </article>
+        <!-- Form pencarian: bertumpuk di mobile, satu baris di desktop -->
+        <form action="skills.html" method="GET" class="mt-6 grid gap-3 md:grid-cols-[2fr_1fr_auto] md:items-end">
+            <div>
+                <label for="search-keyword" class="mb-1.5 block font-medium">Kata kunci</label>
+                <input type="text" id="search-keyword" name="q" placeholder="React, SEO, security..."
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none">
+            </div>
+            <div>
+                <label for="filter-category" class="mb-1.5 block font-medium">Kategori</label>
+                <select id="filter-category" name="category"
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none">
+                    <option value="">Semua</option>
+                    <option value="design">Design</option>
+                    <option value="development">Development</option>
+                    <option value="security">Security</option>
+                    <option value="data">Data</option>
+                    <option value="writing">Writing</option>
+                    <option value="research">Research</option>
+                    <option value="automation">Automation</option>
+                    <option value="productivity">Productivity</option>
+                </select>
+            </div>
+            <button type="submit" class="rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300">Cari Skill</button>
+        </form>
 
-            <article class="skill-item">
-                <h3><a href="skill-detail.html">SQL Query Optimizer</a></h3>
-                <p>Mempercepat query SQL yang lambat.</p>
-                <span class="badge">Data</span>
-                <span class="author">oleh @db_admin</span>
-            </article>
-        </section>
+        <!-- Tabel data: bisa digeser ke samping di layar kecil -->
+        <div class="mt-8 overflow-x-auto rounded border border-neutral-800">
+            <table class="w-full min-w-[640px] text-left">
+                <caption class="sr-only">Daftar AI Skills</caption>
+                <thead class="bg-neutral-950 text-xs text-neutral-400">
+                    <tr>
+                        <th class="px-4 py-3 font-medium">Nama Skill</th>
+                        <th class="px-4 py-3 font-medium">Kategori</th>
+                        <th class="px-4 py-3 font-medium">Platform</th>
+                        <th class="px-4 py-3 font-medium">Author</th>
+                        <th class="px-4 py-3 text-right font-medium">Favorit</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-800">
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">UI/UX Designer Assistant</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Design</span></td>
+                        <td class="px-4 py-3 text-neutral-400">Claude</td>
+                        <td class="px-4 py-3 text-neutral-400">@design_guru</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">124</td>
+                    </tr>
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Python Security Auditor</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Security</span></td>
+                        <td class="px-4 py-3 text-neutral-400">General</td>
+                        <td class="px-4 py-3 text-neutral-400">@sec_expert</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">98</td>
+                    </tr>
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">SQL Query Optimizer</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Data</span></td>
+                        <td class="px-4 py-3 text-neutral-400">OpenAI</td>
+                        <td class="px-4 py-3 text-neutral-400">@db_admin</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">76</td>
+                    </tr>
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">SEO Article Writer</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Writing</span></td>
+                        <td class="px-4 py-3 text-neutral-400">Gemini</td>
+                        <td class="px-4 py-3 text-neutral-400">@content_lab</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">61</td>
+                    </tr>
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Research Summarizer</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Research</span></td>
+                        <td class="px-4 py-3 text-neutral-400">Claude</td>
+                        <td class="px-4 py-3 text-neutral-400">@paper_bot</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">54</td>
+                    </tr>
+                    <tr class="hover:bg-neutral-950">
+                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Workflow Automator</a></td>
+                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Automation</span></td>
+                        <td class="px-4 py-3 text-neutral-400">AI Agent</td>
+                        <td class="px-4 py-3 text-neutral-400">@flow_dev</td>
+                        <td class="px-4 py-3 text-right text-neutral-400">42</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </main>
 
-    <footer>
+    <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
-
 </body>
 </html>

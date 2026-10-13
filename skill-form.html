@@ -5,45 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Skill - AI SkillHub</title>
     <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Geist -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-black font-[Geist] text-sm text-neutral-200">
 
-    <header>
-        <div class="brand">
-            <img src="assets/images/logo.svg" alt="Logo AI SkillHub" width="32" height="32">
-            <h1>AI SkillHub</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="skills.html">Jelajah</a></li>
-                <li><a href="skill-form.html" aria-current="page">Submit</a></li>
+    <!-- Navbar -->
+    <header class="border-b border-neutral-800">
+        <nav class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <a href="index.html" class="flex items-center gap-2 text-base font-semibold text-neutral-100">
+                <img src="assets/images/logo.svg" alt="" width="28" height="28">
+                AI SkillHub
+            </a>
+            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
+            <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
+                <li><a href="index.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Dashboard</a></li>
+                <li><a href="skills.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Jelajah</a></li>
+                <li><a href="skill-form.html" aria-current="page" class="block rounded px-3 py-2 text-neutral-100 hover:bg-neutral-900">Submit</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="submit-form">
-            <div class="form-header">
-                <h2>Submit Skill</h2>
-                <p>Skill akan ditinjau admin sebelum dipublikasikan.</p>
+    <main class="mx-auto max-w-xl px-4 py-8">
+
+        <div class="mb-8 text-center">
+            <h1 class="text-2xl font-semibold text-neutral-100">Submit Skill</h1>
+            <p class="mt-1 text-neutral-400">Skill akan ditinjau admin sebelum dipublikasikan.</p>
+        </div>
+
+        <form action="skills.html" method="POST" class="space-y-4">
+            <div>
+                <label for="skill-name" class="mb-1.5 block font-medium">Nama</label>
+                <input type="text" id="skill-name" name="skill_name" required
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none">
             </div>
 
-            <form action="skills.html" method="POST">
-                <div class="form-group">
-                    <label for="skill-name">Nama</label>
-                    <input type="text" id="skill-name" name="skill_name" required>
-                </div>
+            <div>
+                <label for="skill-desc" class="mb-1.5 block font-medium">Deskripsi</label>
+                <textarea id="skill-desc" name="skill_description" rows="3" required
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none"></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="skill-desc">Deskripsi</label>
-                    <textarea id="skill-desc" name="skill_description" rows="3" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="skill-category">Kategori</label>
-                    <select id="skill-category" name="skill_category" required>
+            <!-- Kategori & Platform: bertumpuk di mobile, berdampingan di layar lebih besar -->
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                    <label for="skill-category" class="mb-1.5 block font-medium">Kategori</label>
+                    <select id="skill-category" name="skill_category" required
+                        class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none">
                         <option value="design">Design</option>
                         <option value="development">Development</option>
                         <option value="security">Security</option>
@@ -54,40 +64,43 @@
                         <option value="productivity">Productivity</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="skill-platform">Platform AI</label>
-                    <select id="skill-platform" name="ai_platform">
+                <div>
+                    <label for="skill-platform" class="mb-1.5 block font-medium">Platform AI</label>
+                    <select id="skill-platform" name="ai_platform"
+                        class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none">
                         <option value="general">General</option>
                         <option value="claude">Claude</option>
                         <option value="openai">OpenAI</option>
                         <option value="gemini">Gemini</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="skill-tags">Tag</label>
-                    <input type="text" id="skill-tags" name="skill_tags" placeholder="UI, Figma">
-                </div>
+            <div>
+                <label for="skill-tags" class="mb-1.5 block font-medium">Tag</label>
+                <input type="text" id="skill-tags" name="skill_tags" placeholder="UI, Figma"
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none">
+            </div>
 
-                <div class="form-group">
-                    <label for="github-url">URL GitHub</label>
-                    <input type="url" id="github-url" name="github_url" placeholder="https://github.com/...">
-                </div>
+            <div>
+                <label for="github-url" class="mb-1.5 block font-medium">URL GitHub</label>
+                <input type="url" id="github-url" name="github_url" placeholder="https://github.com/..."
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none">
+            </div>
 
-                <div class="form-group">
-                    <label for="skill-content">Isi Skill</label>
-                    <textarea id="skill-content" name="skill_content" rows="8" required></textarea>
-                </div>
+            <div>
+                <label for="skill-content" class="mb-1.5 block font-medium">Isi Skill</label>
+                <textarea id="skill-content" name="skill_content" rows="8" required
+                    class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 font-mono text-xs focus:border-neutral-300 focus:outline-none"></textarea>
+            </div>
 
-                <button type="submit">Kirim Skill</button>
-            </form>
-        </section>
+            <button type="submit" class="w-full rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300 sm:w-auto">Kirim Skill</button>
+        </form>
+
     </main>
 
-    <footer>
+    <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
-
 </body>
 </html>
