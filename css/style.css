@@ -1,0 +1,450 @@
+/* =========================================
+   AI SkillHub - Stylesheet
+   Gaya: gelap, minimalis, fokus pada konten
+
+   Aturan desain:
+   - Ukuran font hanya: 12, 14, 16, 19, 30px
+   - Jarak hanya: 6, 8, 12, 14, 24, 32, 96px
+   - Sudut (radius) selalu 4px
+   - Animasi 150ms
+   ========================================= */
+
+/* Font Geist dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&display=swap");
+
+/* Token warna & font, dipakai lewat var(...) */
+:root {
+  --surface: #000000;        /* latar utama */
+  --surface-muted: #0a0a0a;  /* latar input & kode */
+  --border: #1f1f1f;         /* garis pemisah */
+  --border-muted: #2e2e2e;   /* garis input, tombol, badge */
+  --text-primary: #ededed;   /* teks utama */
+  --text-secondary: #8f8f8f; /* teks pendukung */
+  --error: #ff6166;          /* input yang salah */
+  --font: "Geist", Arial, sans-serif;
+  --font-mono: "Geist Mono", Consolas, monospace;
+  color-scheme: dark;        /* input & select bawaan browser ikut gelap */
+}
+
+/* ---------- Dasar ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-primary);
+  background-color: var(--surface);
+  overflow-wrap: break-word; /* teks panjang tidak keluar layar */
+}
+
+h1, h2, h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 { font-size: 16px; margin: 0; }
+h2 { font-size: 19px; }
+h3 { font-size: 16px; margin-bottom: 6px; }
+
+p {
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--text-secondary);
+}
+
+/* Fokus keyboard harus selalu terlihat (WCAG) */
+:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- Header & Navigasi ---------- */
+body > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 150ms, background-color 150ms;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background-color: var(--border);
+}
+
+/* Link halaman yang sedang dibuka */
+nav a[aria-current="page"] {
+  color: var(--text-primary);
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main > section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+main > section:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Hero ---------- */
+#hero {
+  padding: 96px 0;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 30px;
+}
+
+#hero p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Tombol ---------- */
+button,
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  color: var(--surface);
+  background-color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 150ms, background-color 150ms;
+}
+
+button:hover,
+.btn:hover {
+  color: var(--surface);
+  opacity: 0.85;
+}
+
+button:active,
+.btn:active {
+  opacity: 0.7;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Tombol kedua: transparan dengan garis */
+.btn-secondary {
+  color: var(--text-primary);
+  background-color: transparent;
+  border-color: var(--border-muted);
+}
+
+.btn-secondary:hover {
+  color: var(--text-primary);
+  background-color: var(--border);
+  opacity: 1;
+}
+
+.hero-actions,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-actions {
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* ---------- Kategori ---------- */
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.category-list li {
+  padding: 12px;
+  text-align: center;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* ---------- Daftar Skill ---------- */
+.skill-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}
+
+.skill-item h3 a {
+  text-decoration: none;
+}
+
+.skill-item h3 a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.skill-item p {
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-muted);
+  border-radius: 4px;
+}
+
+.author {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Form ---------- */
+.search-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.search-bar .form-group {
+  margin: 0;
+}
+
+#submit-form {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-header p {
+  color: var(--text-secondary);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-primary);
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border-muted);
+  border-radius: 4px;
+  transition: border-color 150ms;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--text-secondary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Error: muncul setelah user mengisi lalu isinya tidak valid */
+input:user-invalid,
+textarea:user-invalid {
+  border-color: var(--error);
+}
+
+/* ---------- Halaman Detail ---------- */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+  padding: 32px 24px;
+}
+
+aside {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+pre,
+code {
+  font-family: var(--font-mono);
+}
+
+pre {
+  margin: 0 0 24px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+.info-list {
+  margin: 0 0 24px;
+  padding-left: 14px;
+  color: var(--text-secondary);
+}
+
+table {
+  width: 100%;
+  margin-bottom: 24px;
+  border-collapse: collapse;
+}
+
+caption {
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 500;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+th {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ---------- Footer ---------- */
+body > footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}
+
+body > footer p {
+  margin: 0;
+}
+
+/* ---------- Responsive: layar <= 768px ---------- */
+@media (max-width: 768px) {
+  /* Navigasi horizontal -> vertikal */
+  body > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  /* Area sentuh lebih besar untuk jari */
+  nav a {
+    padding: 12px;
+    border: 1px solid var(--border);
+  }
+
+  main {
+    padding: 0 14px;
+  }
+
+  #hero {
+    padding: 32px 0;
+  }
+
+  .category-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-bar,
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-layout {
+    padding: 24px 14px;
+  }
+}

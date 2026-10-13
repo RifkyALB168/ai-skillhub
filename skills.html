@@ -3,116 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Skill - AI SkillHub</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Jelajah Skill - AI SkillHub</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header & Navigasi -->
     <header>
         <div class="brand">
+            <img src="assets/images/logo.svg" alt="Logo AI SkillHub" width="32" height="32">
             <h1>AI SkillHub</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
-                <li><a href="skills.html">Jelajah Skill</a></li>
-                <li><a href="skill-form.html">Tambah Skill</a></li>
+                <li><a href="skills.html" aria-current="page">Jelajah</a></li>
+                <li><a href="skill-form.html">Submit</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-
-        <!-- Section Pencarian dan Filter -->
-        <section id="search-filter">
-            <h2>Pencarian AI Skills</h2>
-            <form action="skills.html" method="GET">
+        <section>
+            <h2>Jelajah Skill</h2>
+            <form action="skills.html" method="GET" class="search-bar">
                 <div class="form-group">
-                    <label for="search-keyword">Kata Kunci:</label>
-                    <input type="text" id="search-keyword" name="q" placeholder="Cari skill (misal: React, Security, Copywriting)...">
+                    <label for="search-keyword">Kata kunci</label>
+                    <input type="text" id="search-keyword" name="q" placeholder="React, SEO, security...">
                 </div>
-
                 <div class="form-group">
-                    <label for="filter-category">Filter Kategori:</label>
+                    <label for="filter-category">Kategori</label>
                     <select id="filter-category" name="category">
-                        <option value="">-- Semua Kategori --</option>
+                        <option value="">Semua</option>
                         <option value="design">Design</option>
                         <option value="development">Development</option>
                         <option value="security">Security</option>
                         <option value="data">Data</option>
                         <option value="writing">Writing</option>
+                        <option value="research">Research</option>
                         <option value="automation">Automation</option>
+                        <option value="productivity">Productivity</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="filter-platform">Filter Platform AI:</label>
-                    <select id="filter-platform" name="platform">
-                        <option value="">-- Semua Platform --</option>
-                        <option value="claude">Claude</option>
-                        <option value="openai">OpenAI</option>
-                        <option value="gemini">Gemini</option>
-                        <option value="agent">Coding Agent / Cursor</option>
-                    </select>
-                </div>
-
-                <button type="submit">Terapkan Filter</button>
+                <button type="submit">Cari Skill</button>
             </form>
         </section>
 
-        <!-- Section Daftar Hasil Pencarian -->
-        <section id="skill-list">
-            <h2>Daftar AI Skills</h2>
-
-            <!-- Article Item 1 -->
-            <article>
+        <section>
+            <article class="skill-item">
                 <h3><a href="skill-detail.html">UI/UX Designer Assistant</a></h3>
-                <p>Membuat struktur UI/UX, color palette, dan hirarki tipografi berdasarkan prinsip desain modern.</p>
-                <p>
-                    <strong>Kategori:</strong> <span class="badge">Design</span> |
-                    <strong>Author:</strong> @design_guru |
-                    <strong>Platform:</strong> Claude
-                </p>
-                <a href="skill-detail.html">Buka Skill →</a>
+                <p>Membantu mendesain antarmuka yang modern dan aksesibel.</p>
+                <span class="badge">Design</span>
+                <span class="author">oleh @design_guru</span>
             </article>
 
-            <hr>
-
-            <!-- Article Item 2 -->
-            <article>
+            <article class="skill-item">
                 <h3><a href="skill-detail.html">Python Security Auditor</a></h3>
-                <p>Pemeriksaan keamanan otomatis pada kode Python sebelum dipublikasikan ke server produksi.</p>
-                <p>
-                    <strong>Kategori:</strong> <span class="badge">Security</span> |
-                    <strong>Author:</strong> @sec_expert |
-                    <strong>Platform:</strong> General AI
-                </p>
-                <a href="skill-detail.html">Buka Skill →</a>
+                <p>Memeriksa celah keamanan pada kode Python.</p>
+                <span class="badge">Security</span>
+                <span class="author">oleh @sec_expert</span>
             </article>
 
-            <hr>
-
-            <!-- Article Item 3 -->
-            <article>
+            <article class="skill-item">
                 <h3><a href="skill-detail.html">SQL Query Optimizer</a></h3>
-                <p>Membantu optimasi query SQL yang lambat, menambahkan indeks, dan analisis execution plan.</p>
-                <p>
-                    <strong>Kategori:</strong> <span class="badge">Data</span> |
-                    <strong>Author:</strong> @db_admin |
-                    <strong>Platform:</strong> OpenAI
-                </p>
-                <a href="skill-detail.html">Buka Skill →</a>
+                <p>Mempercepat query SQL yang lambat.</p>
+                <span class="badge">Data</span>
+                <span class="author">oleh @db_admin</span>
             </article>
-
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 AI SkillHub Project</p>
+        <p>&copy; 2026 AI SkillHub</p>
     </footer>
 
 </body>
