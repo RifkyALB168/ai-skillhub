@@ -144,3 +144,30 @@ Pada Minggu 4, `style.css` digantikan oleh Tailwind CSS. Kode CSS Minggu 3 tetap
 | Jelajah Skill (tabel) | ![](docs/screenshots/minggu-4/skills-desktop.png) | ![](docs/screenshots/minggu-4/skills-mobile.png) |
 | Detail Skill | ![](docs/screenshots/minggu-4/skill-detail-desktop.png) | ![](docs/screenshots/minggu-4/skill-detail-mobile.png) |
 | Form Submit | ![](docs/screenshots/minggu-4/skill-form-desktop.png) | ![](docs/screenshots/minggu-4/skill-form-mobile.png) |
+
+### Minggu 5: Frontend Skeleton dengan Tailwind CSS
+
+Pada minggu ini, aplikasi ditambahkan interaktivitas di sisi klien (browser) dengan menggabungkan Vanilla JavaScript dan jQuery dalam satu file `script.js`.
+
+| Requirement | Penerapan |
+|---|---|
+| **Vanilla JS: Data Dummy & DOM** | Data daftar skill dipindahkan dari *hardcode* HTML menjadi variabel *Array of Object* di JS. Data ini di-render secara dinamis ke tabel `<tbody>` halaman Jelajah menggunakan perulangan. |
+| **Vanilla JS: Pemrosesan Data** | Menggunakan fungsi filter pada array (manipulasi data dasar) untuk menyaring daftar skill berdasarkan nama yang dicari. |
+| **jQuery: Event Handling (Live Search)** | Kolom pencarian di halaman *Jelajah Skill* menangkap event `.on('keyup')`, sehingga isi tabel langsung terfilter secara *real-time* saat pengguna mengetik tanpa me-reload halaman. |
+| **jQuery: Validasi & Animasi (Efek)** | Pada halaman *Submit Skill*, event `submit` ditangkap untuk mencegah reload. Terdapat validasi input kosong (mengeluarkan alert), dan jika sukses, notifikasi hijau dimunculkan dengan efek `.fadeIn().delay().fadeOut()`. |
+
+<details>
+<summary>Dokumentasi Interaktivitas (Minggu 5)</summary>
+
+** Video Demonstrasi:**
+- [Tonton Video Demo Interaktivitas JavaScript & jQuery di sini](#https://drive.google.com/file/d/1V24g-q4fwzrOko2j370zLa8vqLjT8Dkt/view?usp=sharing)
+
+**Screenshot Interaksi:**
+
+| Skenario | Keterangan | Screenshot |
+|---|---|---|
+| **Live Search** | Halaman Jelajah saat data berhasil difilter secara *real-time* (Misal: mengetik "SEO") | ![](docs/screenshots/minggu-5/live-search.png) |
+| **Validasi Form** | Munculnya pop-up *alert* peringatan saat mencoba men-submit nama skill kosong | ![](docs/screenshots/minggu-5/form-alert.png) |
+| **Animasi Notifikasi** | Munculnya notifikasi sukses (hijau) menggunakan efek *fadeIn* setelah form dikirim | ![](docs/screenshots/minggu-5/form-success.png) |
+
+</details>

@@ -19,7 +19,6 @@
                 <img src="assets/images/logo.svg" alt="" width="28" height="28">
                 AI SkillHub
             </a>
-            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
             <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
                 <li><a href="index.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Dashboard</a></li>
                 <li><a href="skills.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Jelajah</a></li>
@@ -35,10 +34,15 @@
             <p class="mt-1 text-neutral-400">Skill akan ditinjau admin sebelum dipublikasikan.</p>
         </div>
 
-        <form action="skills.html" method="POST" class="space-y-4">
+        <!-- Elemen Notifikasi (Awalnya disembunyikan via CSS inline) -->
+        <div id="notification" style="display: none;" class="mb-6 rounded border border-green-800 bg-green-950 p-3 text-center font-medium text-green-400">
+            ✅ Skill berhasil dikirim dan menunggu review!
+        </div>
+
+        <form id="skill-form-element" class="space-y-4">
             <div>
                 <label for="skill-name" class="mb-1.5 block font-medium">Nama</label>
-                <input type="text" id="skill-name" name="skill_name" required
+                <input type="text" id="skill-name" name="skill_name"
                     class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none">
             </div>
 
@@ -48,7 +52,6 @@
                     class="w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-neutral-300 focus:outline-none"></textarea>
             </div>
 
-            <!-- Kategori & Platform: bertumpuk di mobile, berdampingan di layar lebih besar -->
             <div class="grid gap-4 sm:grid-cols-2">
                 <div>
                     <label for="skill-category" class="mb-1.5 block font-medium">Kategori</label>
@@ -102,5 +105,9 @@
     <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
+
+    <!-- Import Library jQuery dan script interaktivitas -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

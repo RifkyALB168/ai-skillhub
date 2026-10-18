@@ -19,7 +19,6 @@
                 <img src="assets/images/logo.svg" alt="" width="28" height="28">
                 AI SkillHub
             </a>
-            <!-- Mobile: menu vertikal (flex-col), desktop: horizontal (md:flex-row) -->
             <ul class="flex w-full flex-col gap-1 md:w-auto md:flex-row">
                 <li><a href="index.html" class="block rounded px-3 py-2 text-neutral-400 hover:bg-neutral-900 hover:text-neutral-100">Dashboard</a></li>
                 <li><a href="skills.html" aria-current="page" class="block rounded px-3 py-2 text-neutral-100 hover:bg-neutral-900">Jelajah</a></li>
@@ -31,10 +30,10 @@
     <main class="mx-auto max-w-5xl px-4 py-8">
 
         <h1 class="text-2xl font-semibold text-neutral-100">Jelajah Skill</h1>
-        <p class="mt-1 text-neutral-400">Cari skill berdasarkan nama atau kategori.</p>
+        <p class="mt-1 text-neutral-400">Cari skill berdasarkan nama (Coba ketik "SEO" atau "Python").</p>
 
-        <!-- Form pencarian: bertumpuk di mobile, satu baris di desktop -->
-        <form action="skills.html" method="GET" class="mt-6 grid gap-3 md:grid-cols-[2fr_1fr_auto] md:items-end">
+        <!-- Form pencarian -->
+        <form id="search-form" class="mt-6 grid gap-3 md:grid-cols-[2fr_1fr_auto] md:items-end">
             <div>
                 <label for="search-keyword" class="mb-1.5 block font-medium">Kata kunci</label>
                 <input type="text" id="search-keyword" name="q" placeholder="React, SEO, security..."
@@ -58,7 +57,7 @@
             <button type="submit" class="rounded bg-neutral-100 px-4 py-2 font-medium text-black hover:bg-neutral-300">Cari Skill</button>
         </form>
 
-        <!-- Tabel data: bisa digeser ke samping di layar kecil -->
+        <!-- Tabel data -->
         <div class="mt-8 overflow-x-auto rounded border border-neutral-800">
             <table class="w-full min-w-[640px] text-left">
                 <caption class="sr-only">Daftar AI Skills</caption>
@@ -71,49 +70,8 @@
                         <th class="px-4 py-3 text-right font-medium">Favorit</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-neutral-800">
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">UI/UX Designer Assistant</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Design</span></td>
-                        <td class="px-4 py-3 text-neutral-400">Claude</td>
-                        <td class="px-4 py-3 text-neutral-400">@design_guru</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">124</td>
-                    </tr>
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Python Security Auditor</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Security</span></td>
-                        <td class="px-4 py-3 text-neutral-400">General</td>
-                        <td class="px-4 py-3 text-neutral-400">@sec_expert</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">98</td>
-                    </tr>
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">SQL Query Optimizer</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Data</span></td>
-                        <td class="px-4 py-3 text-neutral-400">OpenAI</td>
-                        <td class="px-4 py-3 text-neutral-400">@db_admin</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">76</td>
-                    </tr>
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">SEO Article Writer</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Writing</span></td>
-                        <td class="px-4 py-3 text-neutral-400">Gemini</td>
-                        <td class="px-4 py-3 text-neutral-400">@content_lab</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">61</td>
-                    </tr>
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Research Summarizer</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Research</span></td>
-                        <td class="px-4 py-3 text-neutral-400">Claude</td>
-                        <td class="px-4 py-3 text-neutral-400">@paper_bot</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">54</td>
-                    </tr>
-                    <tr class="hover:bg-neutral-950">
-                        <td class="px-4 py-3"><a href="skill-detail.html" class="font-medium text-neutral-100 hover:underline">Workflow Automator</a></td>
-                        <td class="px-4 py-3"><span class="rounded border border-neutral-700 px-1.5 font-mono text-xs text-neutral-400">Automation</span></td>
-                        <td class="px-4 py-3 text-neutral-400">AI Agent</td>
-                        <td class="px-4 py-3 text-neutral-400">@flow_dev</td>
-                        <td class="px-4 py-3 text-right text-neutral-400">42</td>
-                    </tr>
+                <!-- Dikosongkan karena di-render dinamis oleh script.js -->
+                <tbody id="skills-tbody" class="divide-y divide-neutral-800">
                 </tbody>
             </table>
         </div>
@@ -123,5 +81,9 @@
     <footer class="border-t border-neutral-800 py-6 text-center text-xs text-neutral-500">
         <p>&copy; 2026 AI SkillHub</p>
     </footer>
+
+    <!-- Import Library jQuery dan script interaktivitas -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
