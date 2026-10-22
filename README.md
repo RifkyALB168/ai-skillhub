@@ -31,7 +31,8 @@ Proyek ini dibangun bertahap hingga pekan ke-14 menjadi aplikasi fullstack.
 ## Teknologi
 
 - HTML5 (semantic)
-- [Tailwind CSS v4](https://tailwindcss.com/) melalui CDN (tanpa JavaScript tambahan)
+- [Tailwind CSS v4](https://tailwindcss.com/) melalui CDN
+- JavaScript (Vanilla) dan [jQuery 3.7](https://jquery.com/) untuk interaktivitas (`script.js`)
 - Font [Geist](https://fonts.google.com/specimen/Geist) dari Google Fonts
 
 ## Struktur Folder
@@ -42,6 +43,7 @@ ai-skillhub/
 ├── skills.html
 ├── skill-detail.html
 ├── skill-form.html
+├── script.js
 ├── assets/
 │   └── images/
 │       └── logo.svg
@@ -49,7 +51,8 @@ ai-skillhub/
     └── screenshots/
         ├── minggu-2/
         ├── minggu-3/
-        └── minggu-4/
+        ├── minggu-4/
+        └── minggu-5/
 ```
 
 ## Cara Menjalankan
@@ -145,22 +148,22 @@ Pada Minggu 4, `style.css` digantikan oleh Tailwind CSS. Kode CSS Minggu 3 tetap
 | Detail Skill | ![](docs/screenshots/minggu-4/skill-detail-desktop.png) | ![](docs/screenshots/minggu-4/skill-detail-mobile.png) |
 | Form Submit | ![](docs/screenshots/minggu-4/skill-form-desktop.png) | ![](docs/screenshots/minggu-4/skill-form-mobile.png) |
 
-### Minggu 5: Frontend Skeleton dengan Tailwind CSS
+### Minggu 5: Interaktivitas dengan JavaScript & jQuery
 
 Pada minggu ini, aplikasi ditambahkan interaktivitas di sisi klien (browser) dengan menggabungkan Vanilla JavaScript dan jQuery dalam satu file `script.js`.
 
 | Requirement | Penerapan |
 |---|---|
 | **Vanilla JS: Data Dummy & DOM** | Data daftar skill dipindahkan dari *hardcode* HTML menjadi variabel *Array of Object* di JS. Data ini di-render secara dinamis ke tabel `<tbody>` halaman Jelajah menggunakan perulangan. |
-| **Vanilla JS: Pemrosesan Data** | Menggunakan fungsi filter pada array (manipulasi data dasar) untuk menyaring daftar skill berdasarkan nama yang dicari. |
-| **jQuery: Event Handling (Live Search)** | Kolom pencarian di halaman *Jelajah Skill* menangkap event `.on('keyup')`, sehingga isi tabel langsung terfilter secara *real-time* saat pengguna mengetik tanpa me-reload halaman. |
+| **Vanilla JS: Pemrosesan Data** | Menggunakan fungsi filter pada array (manipulasi data dasar) untuk menyaring daftar skill berdasarkan nama dan kategori. Jika tidak ada yang cocok, tabel menampilkan pesan "Skill tidak ditemukan." |
+| **jQuery: Event Handling (Live Search)** | Kolom pencarian di halaman *Jelajah Skill* menangkap event `.on('keyup')` dan dropdown kategori menangkap `.on('change')`, sehingga isi tabel langsung terfilter secara *real-time* tanpa me-reload halaman. Tombol "Cari Skill" juga dicegah me-reload halaman dengan `preventDefault()`. |
 | **jQuery: Validasi & Animasi (Efek)** | Pada halaman *Submit Skill*, event `submit` ditangkap untuk mencegah reload. Terdapat validasi input kosong (mengeluarkan alert), dan jika sukses, notifikasi hijau dimunculkan dengan efek `.fadeIn().delay().fadeOut()`. |
 
 <details>
 <summary>Dokumentasi Interaktivitas (Minggu 5)</summary>
 
-** Video Demonstrasi:**
-- [Tonton Video Demo Interaktivitas JavaScript & jQuery di sini](#https://drive.google.com/file/d/1V24g-q4fwzrOko2j370zLa8vqLjT8Dkt/view?usp=sharing)
+**Video Demonstrasi:**
+- [Tonton Video Demo Interaktivitas JavaScript & jQuery di sini](https://drive.google.com/file/d/1V24g-q4fwzrOko2j370zLa8vqLjT8Dkt/view?usp=sharing)
 
 **Screenshot Interaksi:**
 

@@ -12,9 +12,14 @@ const dummySkills = [
     { name: "Workflow Automator", category: "Automation", platform: "AI Agent", author: "@flow_dev", favs: 42 }
 ];
 
-// b. Function untuk memproses data (Memfilter data berdasarkan kata kunci pencarian)
-function filterSkillsData(keyword) {
-    return dummySkills.filter(skill => skill.name.toLowerCase().includes(keyword.toLowerCase()));
+// b. Function untuk memproses data (Memfilter data berdasarkan kata kunci dan kategori)
+function filterSkillsData(keyword, category) {
+    return dummySkills.filter(skill => {
+        const cocokNama = skill.name.toLowerCase().includes(keyword.toLowerCase());
+        // Kategori kosong ("Semua") berarti semua kategori lolos
+        const cocokKategori = category === '' || skill.category.toLowerCase() === category;
+        return cocokNama && cocokKategori;
+    });
 }
 
 // c. Struktur kendali (Perulangan) untuk me-render data ke HTML secara dinamis
@@ -23,7 +28,13 @@ function renderSkillsTable(data) {
     if (!tbody) return; // Hanya jalan jika elemen tabel ada (di skills.html)
     
     tbody.innerHTML = ''; // Kosongkan isi tabel bawaan HTML
-    
+
+    // Jika tidak ada data yang cocok, tampilkan pesan
+    if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-6 text-center text-neutral-400">Skill tidak ditemukan.</td></tr>';
+        return;
+    }
+
     for (let i = 0; i < data.length; i++) {
         const skill = data[i];
         const tr = document.createElement('tr');
@@ -51,10 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
 $(document).ready(function() {
     
     // a. Event Handling: Fitur pencarian live (terhubung dengan fungsi Vanilla JS)
-    $('#search-keyword').on('keyup', function() {
-        const keyword = $(this).val();
-        const filteredData = filterSkillsData(keyword);
+    function cariSkill() {
+        const keyword = $('#search-keyword').val();
+        const category = $('#filter-category').val();
+        const filteredData = filterSkillsData(keyword, category);
         renderSkillsTable(filteredData); // Render ulang tabel dengan data hasil filter
+    }
+
+    $('#search-keyword').on('keyup', cariSkill);   // Saat mengetik
+    $('#filter-category').on('change', cariSkill); // Saat memilih kategori
+
+    // Tombol "Cari Skill" / Enter: cegah reload halaman, lalu cari
+    $('#search-form').on('submit', function(e) {
+        e.preventDefault();
+        cariSkill();
     });
 
     // b. Event Handling & Validasi: Saat form disubmit (di skill-form.html)
